@@ -11,7 +11,14 @@ Public Class MainForm
 
     Dim tables As DataTableCollection
     Dim source1 As New BindingSource
-
+    'To prevent the flicker of screen
+    Protected Overloads Overrides ReadOnly Property CreateParams() As CreateParams
+        Get
+            Dim cp As CreateParams = MyBase.CreateParams
+            cp.ExStyle = cp.ExStyle Or 33554432
+            Return cp
+        End Get
+    End Property
     Public Sub MainForm_Load(ByVal sender As System.Object, ByVal e As System.EventArgs) Handles MyBase.Load
         Me.CenterToScreen()
         Me.FormBorderStyle = Windows.Forms.FormBorderStyle.None
@@ -212,13 +219,7 @@ Public Class MainForm
         lblEmployeeCount.Text = ds.Tables(0).Rows.Count & " Employees "
         IDInt = ds.Tables(0).Rows.Count
     End Sub
-    Private Sub Button1_Click(ByVal sender As System.Object, ByVal e As System.EventArgs)
 
-    End Sub
-
-    Private Sub btnNew_Click(ByVal sender As System.Object, ByVal e As System.EventArgs)
-
-    End Sub
     Public Sub reset()
         If btnSave.Text = "       Save" Then
             AddingForm.txtboPS.Text = ""
@@ -260,18 +261,7 @@ Public Class MainForm
         Return (TotalRecord)
         MyConn.Close()
     End Function
-    Private Sub btnClose_Click(ByVal sender As System.Object, ByVal e As System.EventArgs)
 
-
-    End Sub
-
-    Private Sub btnSave_Click(ByVal sender As System.Object, ByVal e As System.EventArgs)
-
-    End Sub
-
-    Private Sub btnDelete_Click(ByVal sender As System.Object, ByVal e As System.EventArgs)
-
-    End Sub
 
     Private Sub TextBox8_TextChanged(ByVal sender As System.Object, ByVal e As System.EventArgs) Handles txtboxSearch.TextChanged
 
@@ -496,6 +486,8 @@ Public Class MainForm
     End Sub
 
     Private Sub btnPrint_Click(ByVal sender As System.Object, ByVal e As System.EventArgs) Handles btnPrint.Click
+        displayform(PrintReport, pnlTab)
+
         Dim Salary_Grade As String
         Dim sgInt As Integer
         If Not MyConn.State = ConnectionState.Open Then
@@ -521,35 +513,48 @@ Public Class MainForm
         Label9.Text = EditForm.txtboLName.Text & ", " & EditForm.txtboFName.Text & " " & EditForm.txtboMName.Text
         Label10.Text = EditForm.txtboBarangay.Text & ", " & EditForm.txtboTown.Text & ", " & EditForm.cboProvince.Text
 
-        Dim oWord As Word.Application
-        Dim oDoc As Word.Document
-        oWord = CreateObject("Word.Application")
-        oWord.Visible = True
-        'wd1 = New Word.Application
-        'wd1.Visible = True
-        'wd1Doc = wd1.Documents.Add(Application.StartupPath & "\NFA_Employee.dotx") 'example: "D:\profile.dot"
-        oDoc = oWord.Documents.Add(Application.StartupPath & "\NFA_Employee.dotx")
-        'wd1Doc = wd1.Documents.Add(Application.StartupPath & "\NFA_Employee.dotx") 'example: "D:\profile.dot"
+        'to Display data to Crystal Report
+        Dim report As New Payrollq
+        report.SetParameterValue("ID", EditForm.txtboID.Text)
+        report.SetParameterValue("Name", Label9.Text)
+        report.SetParameterValue("Address", Label10.Text)
+        report.SetParameterValue("SGrade", EditForm.cboSGrade.Text)
+        report.SetParameterValue("RpHour", Label11.Text)
+        report.SetParameterValue("TWHours", EditForm.txtboWH.Text)
+        report.SetParameterValue("THAbsent", EditForm.txtboHA.Text)
+        report.SetParameterValue("THLeave", EditForm.txtboHL.Text)
+        report.SetParameterValue("TotalSalary", EditForm.txtboTS.Text)
+        PrintReport.CrystalReportViewer1.ReportSource = report
+
+        'Dim oWord As Word.Application
+        'Dim oDoc As Word.Document
+        'oWord = CreateObject("Word.Application")
+        'oWord.Visible = True
+        ''wd1 = New Word.Application
+        ''wd1.Visible = True
+        ''wd1Doc = wd1.Documents.Add(Application.StartupPath & "\NFA_Employee.dotx") 'example: "D:\profile.dot"
+        'oDoc = oWord.Documents.Add(Application.StartupPath & "\NFA_Employee.dotx")
+        ''wd1Doc = wd1.Documents.Add(Application.StartupPath & "\NFA_Employee.dotx") 'example: "D:\profile.dot"
 
 
 
-        With oDoc
-            .FormFields("w_date").Result = lblDate.Text  'In VS2010, property `Range` is Readonly. 
-            .FormFields("w_ID").Result = EditForm.txtboID.Text 'You need to use `Result`
-            .FormFields("w_name").Result = Label9.Text
-            .FormFields("w_ADD").Result = Label10.Text
-            .FormFields("w_sg").Result = EditForm.cboSGrade.Text
-            .FormFields("w_RP").Result = Label11.Text
-            .FormFields("w_THW").Result = EditForm.txtboWH.Text
-            .FormFields("w_HA").Result = EditForm.txtboHA.Text
-            .FormFields("w_HL").Result = EditForm.txtboHL.Text
-            .FormFields("w_TS").Result = EditForm.txtboTS.Text
+        'With oDoc
+        '    .FormFields("w_date").Result = lblDate.Text  'In VS2010, property `Range` is Readonly. 
+        '    .FormFields("w_ID").Result = EditForm.txtboID.Text 'You need to use `Result`
+        '    .FormFields("w_name").Result = Label9.Text
+        '    .FormFields("w_ADD").Result = Label10.Text
+        '    .FormFields("w_sg").Result = EditForm.cboSGrade.Text
+        '    .FormFields("w_RP").Result = Label11.Text
+        '    .FormFields("w_THW").Result = EditForm.txtboWH.Text
+        '    .FormFields("w_HA").Result = EditForm.txtboHA.Text
+        '    .FormFields("w_HL").Result = EditForm.txtboHL.Text
+        '    .FormFields("w_TS").Result = EditForm.txtboTS.Text
 
-        End With
-        ' wd1Doc.SaveAs("D:\Employees\" & txtLastName.Text & "" & txtFirstName.Text & ".DOC") 'Saves the Document
+        'End With
+        '' wd1Doc.SaveAs("D:\Employees\" & txtLastName.Text & "" & txtFirstName.Text & ".DOC") 'Saves the Document
 
-        'wd1 = Nothing 'Releasing References to Variable
-        'wd1Doc = Nothing
+        ''wd1 = Nothing 'Releasing References to Variable
+        ''wd1Doc = Nothing
         '---------------------------------------------------------------------
         EditForm.txtboPS.Text = ""
         EditForm.txtboLName.Text = ""

@@ -13,7 +13,14 @@ Public Class LogInForm
     Dim ds As DataSet
     Dim a As Integer
     Dim source1 As New BindingSource
-
+    'To prevent the flicker of screen
+    Protected Overloads Overrides ReadOnly Property CreateParams() As CreateParams
+        Get
+            Dim cp As CreateParams = MyBase.CreateParams
+            cp.ExStyle = cp.ExStyle Or 33554432
+            Return cp
+        End Get
+    End Property
     Public Sub refreshlogin()
         myConnToAccess = New SqlConnection("Data Source=MYDARKPC;Initial Catalog=NFA_Employee;Integrated Security=True")
         If Not myConnToAccess.State = ConnectionState.Open Then
