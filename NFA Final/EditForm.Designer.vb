@@ -71,12 +71,12 @@ Partial Class EditForm
         '
         Me.txtboTown.BackColor = System.Drawing.Color.Snow
         Me.txtboTown.Font = New System.Drawing.Font("Candara", 15.75!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.txtboTown.Location = New System.Drawing.Point(760, 434)
+        Me.txtboTown.Location = New System.Drawing.Point(312, 33)
         Me.txtboTown.Margin = New System.Windows.Forms.Padding(8, 7, 8, 7)
         Me.txtboTown.MaxLength = 20
         Me.txtboTown.Name = "txtboTown"
-        Me.txtboTown.Size = New System.Drawing.Size(335, 40)
-        Me.txtboTown.TabIndex = 90
+        Me.txtboTown.Size = New System.Drawing.Size(46, 40)
+        Me.txtboTown.TabIndex = 5
         '
         'lblProvince
         '
@@ -131,34 +131,34 @@ Partial Class EditForm
         Me.cboProvince.Font = New System.Drawing.Font("Candara", 15.75!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
         Me.cboProvince.IntegralHeight = False
         Me.cboProvince.Items.AddRange(New Object() {"Abra", "Agusan del Norte", "Agusan del Sur", "Aklan", "Albay", "Antique", "Apayao", "Aurora", "Basilan", "Bataan", "Batanes", "Batangas", "Benguet", "Biliran", "Bohol", "Bukidnon", "Bulacan", "Cagayan", "Camarines Norte", "Camarines Sur", "Camiguin", "Capiz", "Catanduanes", "Cavite", "Cebu", "Compostela Valley", "Cotabato", "Davao del Norte", "Davao del Sur", "Davao Occidental", "Davao Oriental", "Dinagat Islands", "Eastern Samar", "Guimaras", "Ifugao", "Ilocos Norte", "Ilocos Sur", "Iloilo", "Isabela", "Kalinga", "La Union", "Laguna", "Lanao del Norte", "Lanao del Sur", "Leyte", "Maguindanao", "Marinduque", "Masbate", "Misamis Occidental", "Misamis Oriental", "Mountain Province", "Negros Occidental", "Negros Oriental", "Northern Samar", "Nueva Ecija", "Nueva Vizcaya", "Occidental Mindoro", "Oriental Mindoro", "Palawan", "Pampanga", "Pangasinan", "Quezon", "Quirino", "Rizal", "Romblon", "Samar", "Sarangani", "Siquijor", "Sorsogon", "South Cotabato", "Southern Leyte", "Sultan Kudarat", "Sulu", "Surigao del Norte", "Surigao del Sur", "Tarlac", "Tawi-Tawi", "Zambales", "Zamboanga del Norte", "Zamboanga del Sur", "Zamboanga Sibugay"})
-        Me.cboProvince.Location = New System.Drawing.Point(912, 144)
+        Me.cboProvince.Location = New System.Drawing.Point(377, 33)
         Me.cboProvince.Margin = New System.Windows.Forms.Padding(8, 7, 8, 7)
         Me.cboProvince.MaxLength = 20
         Me.cboProvince.Name = "cboProvince"
-        Me.cboProvince.Size = New System.Drawing.Size(335, 40)
-        Me.cboProvince.TabIndex = 110
+        Me.cboProvince.Size = New System.Drawing.Size(50, 40)
+        Me.cboProvince.TabIndex = 6
         '
         'txtboBarangay
         '
         Me.txtboBarangay.BackColor = System.Drawing.Color.Snow
         Me.txtboBarangay.Font = New System.Drawing.Font("Candara", 15.75!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.txtboBarangay.Location = New System.Drawing.Point(156, 413)
+        Me.txtboBarangay.Location = New System.Drawing.Point(273, 33)
         Me.txtboBarangay.Margin = New System.Windows.Forms.Padding(8, 7, 8, 7)
         Me.txtboBarangay.MaxLength = 20
         Me.txtboBarangay.Name = "txtboBarangay"
-        Me.txtboBarangay.Size = New System.Drawing.Size(335, 40)
-        Me.txtboBarangay.TabIndex = 88
+        Me.txtboBarangay.Size = New System.Drawing.Size(35, 40)
+        Me.txtboBarangay.TabIndex = 4
         '
         'txtSalary
         '
         Me.txtSalary.BackColor = System.Drawing.Color.Snow
         Me.txtSalary.Font = New System.Drawing.Font("Candara", 15.75!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.txtSalary.Location = New System.Drawing.Point(620, 250)
+        Me.txtSalary.Location = New System.Drawing.Point(518, 33)
         Me.txtSalary.Margin = New System.Windows.Forms.Padding(8, 7, 8, 7)
         Me.txtSalary.Name = "txtSalary"
         Me.txtSalary.ReadOnly = True
-        Me.txtSalary.Size = New System.Drawing.Size(163, 40)
-        Me.txtSalary.TabIndex = 114
+        Me.txtSalary.Size = New System.Drawing.Size(122, 40)
+        Me.txtSalary.TabIndex = 8
         '
         'lblSalaryGrade
         '
@@ -184,22 +184,22 @@ Partial Class EditForm
         Me.cboSGrade.IntegralHeight = False
         Me.cboSGrade.ItemHeight = 32
         Me.cboSGrade.Items.AddRange(New Object() {"1", "2", "3", "4", "5", "6", "7", "8", "9", "10", "11", "12", "13", "14", "15", "16", "17", "18", "19", "20", "21", "22", "23", "24", "25", "26", "27", "28", "29", "30", "31", "32", "33"})
-        Me.cboSGrade.Location = New System.Drawing.Point(304, 467)
+        Me.cboSGrade.Location = New System.Drawing.Point(443, 33)
         Me.cboSGrade.Margin = New System.Windows.Forms.Padding(8, 7, 8, 7)
         Me.cboSGrade.MaxDropDownItems = 3
         Me.cboSGrade.Name = "cboSGrade"
-        Me.cboSGrade.Size = New System.Drawing.Size(100, 40)
-        Me.cboSGrade.TabIndex = 100
+        Me.cboSGrade.Size = New System.Drawing.Size(59, 40)
+        Me.cboSGrade.TabIndex = 7
         '
         'txtRate
         '
         Me.txtRate.BackColor = System.Drawing.Color.Snow
         Me.txtRate.Font = New System.Drawing.Font("Candara", 15.75!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.txtRate.Location = New System.Drawing.Point(1174, 434)
+        Me.txtRate.Location = New System.Drawing.Point(518, 87)
         Me.txtRate.Margin = New System.Windows.Forms.Padding(8, 7, 8, 7)
         Me.txtRate.Name = "txtRate"
-        Me.txtRate.Size = New System.Drawing.Size(160, 40)
-        Me.txtRate.TabIndex = 102
+        Me.txtRate.Size = New System.Drawing.Size(83, 40)
+        Me.txtRate.TabIndex = 9
         '
         'lblPesoSign
         '
@@ -233,12 +233,12 @@ Partial Class EditForm
         '
         Me.txtboWH.BackColor = System.Drawing.Color.Snow
         Me.txtboWH.Font = New System.Drawing.Font("Candara", 15.75!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.txtboWH.Location = New System.Drawing.Point(815, 342)
+        Me.txtboWH.Location = New System.Drawing.Point(652, 33)
         Me.txtboWH.Margin = New System.Windows.Forms.Padding(4)
         Me.txtboWH.MaxLength = 3
         Me.txtboWH.Name = "txtboWH"
-        Me.txtboWH.Size = New System.Drawing.Size(119, 40)
-        Me.txtboWH.TabIndex = 89
+        Me.txtboWH.Size = New System.Drawing.Size(103, 40)
+        Me.txtboWH.TabIndex = 10
         '
         'lblTotalSalary
         '
@@ -247,11 +247,11 @@ Partial Class EditForm
         Me.lblTotalSalary.BorderStyle = System.Windows.Forms.BorderStyle.Fixed3D
         Me.lblTotalSalary.Font = New System.Drawing.Font("Candara", 13.8!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
         Me.lblTotalSalary.ForeColor = System.Drawing.Color.Black
-        Me.lblTotalSalary.Location = New System.Drawing.Point(1174, 43)
+        Me.lblTotalSalary.Location = New System.Drawing.Point(1174, 33)
         Me.lblTotalSalary.Margin = New System.Windows.Forms.Padding(4, 0, 4, 0)
         Me.lblTotalSalary.Name = "lblTotalSalary"
         Me.lblTotalSalary.Size = New System.Drawing.Size(142, 31)
-        Me.lblTotalSalary.TabIndex = 103
+        Me.lblTotalSalary.TabIndex = 100
         Me.lblTotalSalary.Text = "Total Salary:"
         '
         'lblbWorkHours
@@ -272,23 +272,23 @@ Partial Class EditForm
         '
         Me.txtboTS.BackColor = System.Drawing.Color.Snow
         Me.txtboTS.Font = New System.Drawing.Font("Candara", 15.75!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.txtboTS.Location = New System.Drawing.Point(741, 134)
+        Me.txtboTS.Location = New System.Drawing.Point(785, 81)
         Me.txtboTS.Margin = New System.Windows.Forms.Padding(4)
         Me.txtboTS.Name = "txtboTS"
         Me.txtboTS.ReadOnly = True
-        Me.txtboTS.Size = New System.Drawing.Size(119, 40)
-        Me.txtboTS.TabIndex = 101
+        Me.txtboTS.Size = New System.Drawing.Size(131, 40)
+        Me.txtboTS.TabIndex = 13
         '
         'txtboHL
         '
         Me.txtboHL.BackColor = System.Drawing.Color.Snow
         Me.txtboHL.Font = New System.Drawing.Font("Candara", 15.75!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.txtboHL.Location = New System.Drawing.Point(620, 196)
+        Me.txtboHL.Location = New System.Drawing.Point(649, 87)
         Me.txtboHL.Margin = New System.Windows.Forms.Padding(4)
         Me.txtboHL.MaxLength = 3
         Me.txtboHL.Name = "txtboHL"
-        Me.txtboHL.Size = New System.Drawing.Size(119, 40)
-        Me.txtboHL.TabIndex = 96
+        Me.txtboHL.Size = New System.Drawing.Size(106, 40)
+        Me.txtboHL.TabIndex = 11
         '
         'lblHrsLeave
         '
@@ -308,12 +308,12 @@ Partial Class EditForm
         '
         Me.txtboHA.BackColor = System.Drawing.Color.Snow
         Me.txtboHA.Font = New System.Drawing.Font("Candara", 15.75!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.txtboHA.Location = New System.Drawing.Point(964, 77)
+        Me.txtboHA.Location = New System.Drawing.Point(786, 33)
         Me.txtboHA.Margin = New System.Windows.Forms.Padding(4)
         Me.txtboHA.MaxLength = 3
         Me.txtboHA.Name = "txtboHA"
-        Me.txtboHA.Size = New System.Drawing.Size(119, 40)
-        Me.txtboHA.TabIndex = 93
+        Me.txtboHA.Size = New System.Drawing.Size(130, 40)
+        Me.txtboHA.TabIndex = 12
         '
         'lblHrsAbsent
         '
@@ -347,34 +347,34 @@ Partial Class EditForm
         '
         Me.txtboLName.BackColor = System.Drawing.Color.Snow
         Me.txtboLName.Font = New System.Drawing.Font("Candara", 15.75!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.txtboLName.Location = New System.Drawing.Point(519, 380)
+        Me.txtboLName.Location = New System.Drawing.Point(168, 33)
         Me.txtboLName.Margin = New System.Windows.Forms.Padding(8, 7, 8, 7)
         Me.txtboLName.MaxLength = 20
         Me.txtboLName.Name = "txtboLName"
-        Me.txtboLName.Size = New System.Drawing.Size(250, 40)
-        Me.txtboLName.TabIndex = 116
+        Me.txtboLName.Size = New System.Drawing.Size(34, 40)
+        Me.txtboLName.TabIndex = 1
         '
         'txtboMName
         '
         Me.txtboMName.BackColor = System.Drawing.Color.Snow
         Me.txtboMName.Font = New System.Drawing.Font("Candara", 15.75!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.txtboMName.Location = New System.Drawing.Point(1111, 322)
+        Me.txtboMName.Location = New System.Drawing.Point(218, 33)
         Me.txtboMName.Margin = New System.Windows.Forms.Padding(8, 7, 8, 7)
         Me.txtboMName.MaxLength = 20
         Me.txtboMName.Name = "txtboMName"
-        Me.txtboMName.Size = New System.Drawing.Size(335, 40)
-        Me.txtboMName.TabIndex = 118
+        Me.txtboMName.Size = New System.Drawing.Size(46, 40)
+        Me.txtboMName.TabIndex = 3
         '
         'txtboFName
         '
         Me.txtboFName.BackColor = System.Drawing.Color.Snow
         Me.txtboFName.Font = New System.Drawing.Font("Candara", 15.75!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.txtboFName.Location = New System.Drawing.Point(446, 467)
+        Me.txtboFName.Location = New System.Drawing.Point(111, 33)
         Me.txtboFName.Margin = New System.Windows.Forms.Padding(8, 7, 8, 7)
         Me.txtboFName.MaxLength = 20
         Me.txtboFName.Name = "txtboFName"
-        Me.txtboFName.Size = New System.Drawing.Size(335, 40)
-        Me.txtboFName.TabIndex = 117
+        Me.txtboFName.Size = New System.Drawing.Size(41, 40)
+        Me.txtboFName.TabIndex = 2
         '
         'lblMName
         '
@@ -448,12 +448,12 @@ Partial Class EditForm
         Me.txtboPS.BackColor = System.Drawing.Color.Snow
         Me.txtboPS.CharacterCasing = System.Windows.Forms.CharacterCasing.Upper
         Me.txtboPS.Font = New System.Drawing.Font("Candara", 15.75!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.txtboPS.Location = New System.Drawing.Point(1017, 193)
+        Me.txtboPS.Location = New System.Drawing.Point(36, 33)
         Me.txtboPS.Margin = New System.Windows.Forms.Padding(8, 7, 8, 7)
         Me.txtboPS.MaxLength = 20
         Me.txtboPS.Name = "txtboPS"
-        Me.txtboPS.Size = New System.Drawing.Size(429, 40)
-        Me.txtboPS.TabIndex = 107
+        Me.txtboPS.Size = New System.Drawing.Size(59, 40)
+        Me.txtboPS.TabIndex = 0
         '
         'Timer2
         '

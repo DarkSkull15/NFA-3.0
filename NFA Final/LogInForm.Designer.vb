@@ -383,6 +383,7 @@ Partial Class LogInForm
         '
         'LogInForm
         '
+        Me.AcceptButton = Me.btnLogin
         Me.AutoScaleDimensions = New System.Drawing.SizeF(8.0!, 16.0!)
         Me.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font
         Me.BackgroundImage = CType(resources.GetObject("$this.BackgroundImage"), System.Drawing.Image)
@@ -406,6 +407,7 @@ Partial Class LogInForm
         Me.Controls.Add(Me.pnlTop)
         Me.Controls.Add(Me.pnlBottom)
         Me.Controls.Add(Me.pnlSukatan)
+        Me.DoubleBuffered = True
         Me.Icon = CType(resources.GetObject("$this.Icon"), System.Drawing.Icon)
         Me.Margin = New System.Windows.Forms.Padding(4)
         Me.Name = "LogInForm"

@@ -425,7 +425,8 @@ Public Class MainForm
         LogInForm.ProgressBar1.Value = 0
         LogInForm.ProgressBar1.Hide()
 
-        Me.Hide()
+        Me.Close()
+
         LogInForm.Show()
         LogInForm.PicBoxWarning.Hide()
         LogInForm.InputPW.Text = ""
@@ -486,90 +487,107 @@ Public Class MainForm
     End Sub
 
     Private Sub btnPrint_Click(ByVal sender As System.Object, ByVal e As System.EventArgs) Handles btnPrint.Click
-        displayform(PrintReport, pnlTab)
 
-        Dim Salary_Grade As String
-        Dim sgInt As Integer
-        If Not MyConn.State = ConnectionState.Open Then
-            MyConn.Open()
-        End If
-        EditForm.txtboID.Text = Form1.DataGridView1.SelectedCells(0).Value.ToString()
-        EditForm.txtboPS.Text = Form1.DataGridView1.SelectedCells(1).Value.ToString()
-        EditForm.txtboLName.Text = Form1.DataGridView1.SelectedCells(2).Value.ToString()
-        EditForm.txtboFName.Text = Form1.DataGridView1.SelectedCells(3).Value.ToString()
-        EditForm.txtboMName.Text = Form1.DataGridView1.SelectedCells(4).Value.ToString()
-        EditForm.txtboBarangay.Text = Form1.DataGridView1.SelectedCells(5).Value.ToString()
-        EditForm.txtboTown.Text = Form1.DataGridView1.SelectedCells(6).Value.ToString()
-        EditForm.cboProvince.Text = Form1.DataGridView1.SelectedCells(7).Value.ToString()
-        Salary_Grade = Form1.DataGridView1.SelectedCells(8).Value.ToString()
-        Label11.Text = Form1.DataGridView1.SelectedCells(10).Value.ToString()
-        EditForm.txtboWH.Text = Form1.DataGridView1.SelectedCells(11).Value.ToString()
-        EditForm.txtboHA.Text = Form1.DataGridView1.SelectedCells(12).Value.ToString()
-        EditForm.txtboHL.Text = Form1.DataGridView1.SelectedCells(13).Value.ToString()
-        EditForm.txtboTS.Text = Form1.DataGridView1.SelectedCells(14).Value.ToString()
-        Int32.TryParse(Salary_Grade, sgInt)
-        EditForm.cboSGrade.SelectedIndex = sgInt - 1
-        MyConn.Close()
-        Label9.Text = EditForm.txtboLName.Text & ", " & EditForm.txtboFName.Text & " " & EditForm.txtboMName.Text
-        Label10.Text = EditForm.txtboBarangay.Text & ", " & EditForm.txtboTown.Text & ", " & EditForm.cboProvince.Text
+        Try
+            Cursor.Current = Cursors.WaitCursor
+            btnDlete.Enabled = False
+            btnEdt.Enabled = False
+            btnPayrol.Enabled = False
+            btnPrint.Enabled = False
+            btnAdd.Enabled = False
+            txtboxSearch.Enabled = False
+            displayform(PrintReport, pnlTab)
 
-        'to Display data to Crystal Report
-        Dim report As New Payrollq
-        report.SetParameterValue("ID", EditForm.txtboID.Text)
-        report.SetParameterValue("Name", Label9.Text)
-        report.SetParameterValue("Address", Label10.Text)
-        report.SetParameterValue("SGrade", EditForm.cboSGrade.Text)
-        report.SetParameterValue("RpHour", Label11.Text)
-        report.SetParameterValue("TWHours", EditForm.txtboWH.Text)
-        report.SetParameterValue("THAbsent", EditForm.txtboHA.Text)
-        report.SetParameterValue("THLeave", EditForm.txtboHL.Text)
-        report.SetParameterValue("TotalSalary", EditForm.txtboTS.Text)
-        PrintReport.CrystalReportViewer1.ReportSource = report
+            Dim Salary_Grade As String
+            Dim sgInt As Integer
+            If Not MyConn.State = ConnectionState.Open Then
+                MyConn.Open()
+            End If
+            EditForm.txtboID.Text = Form1.DataGridView1.SelectedCells(0).Value.ToString()
+            EditForm.txtboPS.Text = Form1.DataGridView1.SelectedCells(1).Value.ToString()
+            EditForm.txtboLName.Text = Form1.DataGridView1.SelectedCells(2).Value.ToString()
+            EditForm.txtboFName.Text = Form1.DataGridView1.SelectedCells(3).Value.ToString()
+            EditForm.txtboMName.Text = Form1.DataGridView1.SelectedCells(4).Value.ToString()
+            EditForm.txtboBarangay.Text = Form1.DataGridView1.SelectedCells(5).Value.ToString()
+            EditForm.txtboTown.Text = Form1.DataGridView1.SelectedCells(6).Value.ToString()
+            EditForm.cboProvince.Text = Form1.DataGridView1.SelectedCells(7).Value.ToString()
+            Salary_Grade = Form1.DataGridView1.SelectedCells(8).Value.ToString()
+            Label11.Text = Form1.DataGridView1.SelectedCells(10).Value.ToString()
+            EditForm.txtboWH.Text = Form1.DataGridView1.SelectedCells(11).Value.ToString()
+            EditForm.txtboHA.Text = Form1.DataGridView1.SelectedCells(12).Value.ToString()
+            EditForm.txtboHL.Text = Form1.DataGridView1.SelectedCells(13).Value.ToString()
+            EditForm.txtboTS.Text = Form1.DataGridView1.SelectedCells(14).Value.ToString()
+            Int32.TryParse(Salary_Grade, sgInt)
+            EditForm.cboSGrade.SelectedIndex = sgInt - 1
+            MyConn.Close()
+            Label9.Text = EditForm.txtboLName.Text & ", " & EditForm.txtboFName.Text & " " & EditForm.txtboMName.Text
+            Label10.Text = EditForm.txtboBarangay.Text & ", " & EditForm.txtboTown.Text & ", " & EditForm.cboProvince.Text
 
-        'Dim oWord As Word.Application
-        'Dim oDoc As Word.Document
-        'oWord = CreateObject("Word.Application")
-        'oWord.Visible = True
-        ''wd1 = New Word.Application
-        ''wd1.Visible = True
-        ''wd1Doc = wd1.Documents.Add(Application.StartupPath & "\NFA_Employee.dotx") 'example: "D:\profile.dot"
-        'oDoc = oWord.Documents.Add(Application.StartupPath & "\NFA_Employee.dotx")
-        ''wd1Doc = wd1.Documents.Add(Application.StartupPath & "\NFA_Employee.dotx") 'example: "D:\profile.dot"
+            Dim CurrenntReport As New Payrollq
+
+            CurrenntReport.SetParameterValue("ID", EditForm.txtboID.Text)
+            CurrenntReport.SetParameterValue("Name", Label9.Text)
+            CurrenntReport.SetParameterValue("Address", Label10.Text)
+            CurrenntReport.SetParameterValue("SGrade", EditForm.cboSGrade.Text)
+            CurrenntReport.SetParameterValue("RpHour", Label11.Text)
+            CurrenntReport.SetParameterValue("TWHours", EditForm.txtboWH.Text)
+            CurrenntReport.SetParameterValue("THAbsent", EditForm.txtboHA.Text)
+            CurrenntReport.SetParameterValue("THLeave", EditForm.txtboHL.Text)
+            CurrenntReport.SetParameterValue("TotalSalary", EditForm.txtboTS.Text)
+
+            PrintReport.CrystalReportViewer1.ReportSource = CurrenntReport
+
+
+            'Dim oWord As Word.Application
+            'Dim oDoc As Word.Document
+            'oWord = CreateObject("Word.Application")
+            'oWord.Visible = True
+            ''wd1 = New Word.Application
+            ''wd1.Visible = True
+            ''wd1Doc = wd1.Documents.Add(Application.StartupPath & "\NFA_Employee.dotx") 'example: "D:\profile.dot"
+            'oDoc = oWord.Documents.Add(Application.StartupPath & "\NFA_Employee.dotx")
+            ''wd1Doc = wd1.Documents.Add(Application.StartupPath & "\NFA_Employee.dotx") 'example: "D:\profile.dot"
 
 
 
-        'With oDoc
-        '    .FormFields("w_date").Result = lblDate.Text  'In VS2010, property `Range` is Readonly. 
-        '    .FormFields("w_ID").Result = EditForm.txtboID.Text 'You need to use `Result`
-        '    .FormFields("w_name").Result = Label9.Text
-        '    .FormFields("w_ADD").Result = Label10.Text
-        '    .FormFields("w_sg").Result = EditForm.cboSGrade.Text
-        '    .FormFields("w_RP").Result = Label11.Text
-        '    .FormFields("w_THW").Result = EditForm.txtboWH.Text
-        '    .FormFields("w_HA").Result = EditForm.txtboHA.Text
-        '    .FormFields("w_HL").Result = EditForm.txtboHL.Text
-        '    .FormFields("w_TS").Result = EditForm.txtboTS.Text
+            'With oDoc
+            '    .FormFields("w_date").Result = lblDate.Text  'In VS2010, property `Range` is Readonly. 
+            '    .FormFields("w_ID").Result = EditForm.txtboID.Text 'You need to use `Result`
+            '    .FormFields("w_name").Result = Label9.Text
+            '    .FormFields("w_ADD").Result = Label10.Text
+            '    .FormFields("w_sg").Result = EditForm.cboSGrade.Text
+            '    .FormFields("w_RP").Result = Label11.Text
+            '    .FormFields("w_THW").Result = EditForm.txtboWH.Text
+            '    .FormFields("w_HA").Result = EditForm.txtboHA.Text
+            '    .FormFields("w_HL").Result = EditForm.txtboHL.Text
+            '    .FormFields("w_TS").Result = EditForm.txtboTS.Text
 
-        'End With
-        '' wd1Doc.SaveAs("D:\Employees\" & txtLastName.Text & "" & txtFirstName.Text & ".DOC") 'Saves the Document
+            'End With
+            '' wd1Doc.SaveAs("D:\Employees\" & txtLastName.Text & "" & txtFirstName.Text & ".DOC") 'Saves the Document
 
-        ''wd1 = Nothing 'Releasing References to Variable
-        ''wd1Doc = Nothing
-        '---------------------------------------------------------------------
-        EditForm.txtboPS.Text = ""
-        EditForm.txtboLName.Text = ""
-        EditForm.txtboFName.Text = ""
-        EditForm.txtboMName.Text = ""
-        EditForm.txtboBarangay.Text = ""
-        EditForm.txtboTown.Text = ""
-        EditForm.txtSalary.Text = ""
-        EditForm.txtRate.Text = ""
-        EditForm.cboSGrade.SelectedIndex = 0
-        EditForm.cboProvince.SelectedIndex = 0
-        EditForm.txtboWH.Text = ""
-        EditForm.txtboHA.Text = ""
-        EditForm.txtboHL.Text = ""
-        EditForm.txtboTS.Text = ""
+            ''wd1 = Nothing 'Releasing References to Variable
+            ''wd1Doc = Nothing
+            '---------------------------------------------------------------------
+            EditForm.txtboPS.Text = ""
+            EditForm.txtboLName.Text = ""
+            EditForm.txtboFName.Text = ""
+            EditForm.txtboMName.Text = ""
+            EditForm.txtboBarangay.Text = ""
+            EditForm.txtboTown.Text = ""
+            EditForm.txtSalary.Text = ""
+            EditForm.txtRate.Text = ""
+            EditForm.cboSGrade.SelectedIndex = 0
+            EditForm.cboProvince.SelectedIndex = 0
+            EditForm.txtboWH.Text = ""
+            EditForm.txtboHA.Text = ""
+            EditForm.txtboHL.Text = ""
+            EditForm.txtboTS.Text = ""
+
+            Cursor.Current = Cursors.Default
+        Catch ex As Exception
+            MsgBox(ex.ToString & vbCrLf & ex.Message & vbCrLf & ex.StackTrace)
+        End Try
+
     End Sub
 
     Private Sub btnPayrol_Click(ByVal sender As System.Object, ByVal e As System.EventArgs) Handles btnPayrol.Click
@@ -585,11 +603,11 @@ Public Class MainForm
         btnDlete.Enabled = False
         btnEdt.Enabled = False
         btnPayrol.Enabled = False
-        'btnPrint.Enabled = False
+        'btnPrint.Enabled = False 
         btnAdd.Enabled = False
     End Sub
 
-    Private Sub Panel3_Paint(ByVal sender As System.Object, ByVal e As System.Windows.Forms.PaintEventArgs) Handles pnlTab.Paint
-
+    Friend Shared Sub LogInForm_Load_1()
+        Throw New NotImplementedException()
     End Sub
 End Class

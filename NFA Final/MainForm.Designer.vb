@@ -460,7 +460,7 @@ Partial Class MainForm
         Me.btnPrint.Name = "btnPrint"
         Me.btnPrint.Size = New System.Drawing.Size(229, 35)
         Me.btnPrint.TabIndex = 147
-        Me.btnPrint.Text = "       Print"
+        Me.btnPrint.Text = "       Report"
         Me.btnPrint.UseVisualStyleBackColor = False
         '
         'btnPayrol

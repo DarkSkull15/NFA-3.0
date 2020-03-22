@@ -35,6 +35,7 @@ Partial Class PrintReport
         Me.CrystalReportViewer1.Location = New System.Drawing.Point(0, 0)
         Me.CrystalReportViewer1.Name = "CrystalReportViewer1"
         Me.CrystalReportViewer1.ReportSource = Me.Payrollq1
+        Me.CrystalReportViewer1.ReuseParameterValuesOnRefresh = True
         Me.CrystalReportViewer1.Size = New System.Drawing.Size(1322, 730)
         Me.CrystalReportViewer1.TabIndex = 0
         Me.CrystalReportViewer1.ToolPanelView = CrystalDecisions.Windows.Forms.ToolPanelViewType.None
