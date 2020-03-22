@@ -57,6 +57,7 @@ Partial Class EditForm
         Me.Timer2 = New System.Windows.Forms.Timer(Me.components)
         Me.lblAddress = New System.Windows.Forms.Label()
         Me.lblPW = New System.Windows.Forms.Label()
+        Me.Label1 = New System.Windows.Forms.Label()
         Me.SuspendLayout()
         '
         'pnlSukatan
@@ -488,12 +489,28 @@ Partial Class EditForm
         Me.lblPW.TabIndex = 108
         Me.lblPW.Text = "Password:"
         '
+        'Label1
+        '
+        Me.Label1.AutoSize = True
+        Me.Label1.BackColor = System.Drawing.Color.SeaShell
+        Me.Label1.BorderStyle = System.Windows.Forms.BorderStyle.Fixed3D
+        Me.Label1.Font = New System.Drawing.Font("Candara", 13.8!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.Label1.ForeColor = System.Drawing.Color.Black
+        Me.Label1.Location = New System.Drawing.Point(786, 473)
+        Me.Label1.Margin = New System.Windows.Forms.Padding(27, 25, 27, 25)
+        Me.Label1.Name = "Label1"
+        Me.Label1.Size = New System.Drawing.Size(27, 31)
+        Me.Label1.TabIndex = 116
+        Me.Label1.Text = "="
+        Me.Label1.Visible = False
+        '
         'EditForm
         '
         Me.AutoScaleDimensions = New System.Drawing.SizeF(8.0!, 16.0!)
         Me.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font
         Me.BackColor = System.Drawing.SystemColors.Control
         Me.ClientSize = New System.Drawing.Size(1527, 538)
+        Me.Controls.Add(Me.Label1)
         Me.Controls.Add(Me.txtboTown)
         Me.Controls.Add(Me.lblProvince)
         Me.Controls.Add(Me.lblTown)
@@ -568,4 +585,5 @@ Partial Class EditForm
     Friend WithEvents Timer2 As Timer
     Friend WithEvents lblAddress As Label
     Friend WithEvents lblPW As Label
+    Friend WithEvents Label1 As Label
 End Class
